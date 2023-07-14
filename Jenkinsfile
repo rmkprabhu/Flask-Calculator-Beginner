@@ -35,7 +35,9 @@ pipeline {
             sh "pwd"
             sh "hostname"
             sh "netstat -tulpn | grep LISTEN"
-            sh "sudo nohup python3 app.py > log.txt 2>&1 &"
+            sh "whoami"
+            sh "sudo nohup python app.py > log.txt 2>&1 &"
+            sh "netstat -tulpn | grep LISTEN"
             echo "Flask Application Up and running!!"
         }
         failure {
