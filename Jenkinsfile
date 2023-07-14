@@ -34,7 +34,7 @@ pipeline {
             sh "pwd"
             sh "hostname"
             echo "killing old python process"
-            sh "sudo fuser -k 5000/tcp"
+            sh "sudo pkill -f python"
             sh "netstat -tulpn | grep LISTEN"
             sh "whoami"
             echo "initiating new python process"
