@@ -31,7 +31,6 @@ pipeline {
             junit allowEmptyResults: true, testResults:'**/test_reports/*.xml'
         }
         success {
-            sh "ls"
             sh "pwd"
             sh "hostname"
             sh "netstat -tulpn | grep LISTEN"
