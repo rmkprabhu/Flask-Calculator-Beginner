@@ -14,7 +14,7 @@ api.add_resource(Divide, "/division")
 
 @app.route('/')
 def hello_world():
-    return "Hello World!"
+    return "Hello World! from GIT deployed app"
 
 
 if __name__=="__main__":
