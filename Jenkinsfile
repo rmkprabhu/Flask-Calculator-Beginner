@@ -33,8 +33,11 @@ pipeline {
         success {
             sh "pwd"
             sh "hostname"
+            echo "killing old python process"
+            sh "sudo fuser -k 5000/tcp"
             sh "netstat -tulpn | grep LISTEN"
             sh "whoami"
+            echo "initiating new python process"
             sh "sudo nohup python app.py > log.txt 2>&1 &"
             sh "netstat -tulpn | grep LISTEN"
             echo "Flask Application Up and running!!"
