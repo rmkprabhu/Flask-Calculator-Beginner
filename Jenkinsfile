@@ -33,7 +33,7 @@ pipeline {
             junit allowEmptyResults: true, testResults:'**/test_reports/*.xml'
         }
         success {
-            
+            echo " Deplopyment successful"
         }
         failure {
             echo 'Build stage failed'
