@@ -21,6 +21,16 @@ pipeline {
     {
       steps {
         echo "deploying the application"
+        sh "pwd"
+        sh "hostname"
+        echo "killing old python process"
+        sh "sudo pkill -f python"
+        sh "netstat -tulpn | grep LISTEN"
+        sh "whoami"
+        echo "initiating new python process"
+        sh "sudo nohup python app.py > log.txt 2>&1 &"
+        sh "netstat -tulpn | grep LISTEN"
+        echo "Flask Application Up and running!!"
       }
     }
 
@@ -31,16 +41,7 @@ pipeline {
             junit allowEmptyResults: true, testResults:'**/test_reports/*.xml'
         }
         success {
-            sh "pwd"
-            sh "hostname"
-            echo "killing old python process"
-            sh "sudo pkill -f python"
-            sh "netstat -tulpn | grep LISTEN"
-            sh "whoami"
-            echo "initiating new python process"
-            sh "sudo nohup python app.py > log.txt 2>&1 &"
-            sh "netstat -tulpn | grep LISTEN"
-            echo "Flask Application Up and running!!"
+            echo "Pipeline deployed"
         }
         failure {
             echo 'Build stage failed'
