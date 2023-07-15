@@ -22,7 +22,7 @@ pipeline {
       steps {
         echo "deploying the application"
         sh "docker build -t python-test ."
-        sh "docker run -d -p "5000:5000" -i python-test:latest"
+        sh 'docker run -d -p "5000:5000" -i python-test:latest'
       }
     }
 
