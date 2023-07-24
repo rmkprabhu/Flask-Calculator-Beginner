@@ -24,8 +24,8 @@ pipeline {
     {
       steps {
         echo "deploying the application"
-        sh "sudo docker build -t python-testjenkins ."
-        sh 'sudo docker run -d -p "5000:5000" -i python-testjenkins:latest'
+        sh "docker build -t python-testjenkins ."
+        sh 'docker run -d -p "5000:5000" -i python-testjenkins:latest'
       }
     }
 
