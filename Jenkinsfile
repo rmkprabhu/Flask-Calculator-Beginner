@@ -1,7 +1,7 @@
 pipeline {
   agent 
    {
-    label 'dev'
+    label 'jenkins-client-node-dev'
    }
   stages {
     stage('Build') {
