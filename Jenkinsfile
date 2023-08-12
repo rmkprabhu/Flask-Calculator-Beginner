@@ -1,7 +1,7 @@
 pipeline {
   agent 
    {
-    label 'jenkins-client-node-dev'
+    label 'bpcl-dev'
    }
   stages {
     stage('Build') {
