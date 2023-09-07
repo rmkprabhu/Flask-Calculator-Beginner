@@ -1,7 +1,7 @@
 pipeline {
   agent 
    {
-    label 'bpcl-dev'
+    label 'sonarqube-netflix'
    }
   stages {
     stage('Build') {
