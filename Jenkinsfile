@@ -27,7 +27,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        echo "This is test stage"
+        echo "This is test stag - yes"
         sh 'python3 test_app.py'
         input(id: "Deploy Gate", message: "Deploy ${params.project_name}?", ok: 'Deploy')
       }
@@ -37,6 +37,8 @@ pipeline {
     {
       steps {
         echo "deploying the application"
+        sh "sudo docker stop $(docker ps -q)"
+        sh "sudo docker rm $(docker ps -aq)"
         sh "sudo docker build -t python-testjenkins ."
         sh 'sudo docker run -d -p "5000:5000" -i python-testjenkins:latest'
       }
