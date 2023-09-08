@@ -29,7 +29,6 @@ pipeline {
       steps {
         echo "This is test stag - yes"
         sh 'python3 test_app.py'
-        input(id: "Deploy Gate", message: "Deploy python-project?", ok: 'Deploy')
       }
     }
 
