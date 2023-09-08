@@ -36,8 +36,6 @@ pipeline {
     {
       steps {
         echo "deploying the application"
-        sh 'sudo docker stop $(docker ps -q)'
-        sh 'sudo docker rm $(docker ps -aq) '
         sh "sudo docker build -t python-testjenkins ."
         sh 'sudo docker run -d -p "5000:5000" -i python-testjenkins:latest'
       }
